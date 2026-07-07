@@ -8,7 +8,9 @@ pipeline {
 
     tools {
         // Mantenemos tu herramienta de Docker para que provea el comando 'docker'
-        dockerTool 'DockerTool'  
+        dockerTool 'DockerTool'
+        // Node.js para tener npm/node disponibles en las etapas de build/test
+        nodejs 'NodeJS-20'
     }
 
     stages {
