@@ -1,8 +1,14 @@
 pipeline {
     agent any
 
+    environment {
+        // Obliga al cliente de Docker antiguo a comunicarse correctamente con Docker Desktop
+        DOCKER_API_VERSION = '1.40'
+    }
+
     tools {
-        nodejs "Node18" // Asume que tienes configurada una instalación llamada "Node18" en Jenkins
+        // Mantenemos tu herramienta de Docker para que provea el comando 'docker'
+        dockerTool 'DockerTool'  
     }
 
     stages {
